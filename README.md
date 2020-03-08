@@ -5,4 +5,6 @@ Nessa fase de codificação do curso Python com base nas aulas de Gustavo Guanab
 
 ## Parte Básica 
 ## Estruturas Compostas
-## Diversãoções 
+
+## Mundo 3
+Trabalhando de forma mais avançada no Python!
