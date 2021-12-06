@@ -1,6 +1,8 @@
 # PROJETO DO CURSO BGE
 '''
 https://www.selenium.dev/documentation/webdriver/locating_elements/
+https://pt.stackoverflow.com/questions/259769/abrir-e-fechar-v%C3%A1rias-abas-no-navegador-com-python
+
 
 POSSIVEIS PACOTES PARA INSTALAR
 
@@ -14,12 +16,13 @@ pip install geckodriver
 
 apt install firefox-geckodriver
 '''
-
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
 pesquisa = input("Digite")
 driver = webdriver.Firefox()
+driver.maximize_window()
+driver.implicitly_wait(20)
 driver.get("https://www.google.com")
 campo = driver.find_element_by_xpath("//input[@aria-label='Pesquisar']")
 campo.send_keys(pesquisa)
@@ -50,7 +53,7 @@ while pagina_atual <= int(pagina_alvo)-1:
         driver.get(url_pagina)
     pagina_atual += 1
 
-    divs = driver.find_elements_by_spath("//div[@class='g']")
+    divs = driver.find_elements_by_xpath("//div[@class='g']")
     for div in divs:
         nome = div.find_element_by_tag_name("span")
         link = div.find_element_by_tag_name("a")
@@ -65,3 +68,5 @@ with open("resultados.txt","w") as  arquivo:
     arquivo.close()
 
 print("%s resultados encontrados do Google e salvos no arquivo.txt" %len(lista_resultados))
+
+
